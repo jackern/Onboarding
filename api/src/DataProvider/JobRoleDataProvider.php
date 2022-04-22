@@ -5,7 +5,7 @@ namespace App\DataProvider;
 use ApiPlatform\Core\DataProvider\ItemDataProviderInterface;
 use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
 use App\Entity\JobRole;
-use App\Uuid;
+use Symfony\Component\Uid\Uuid;
 
 final class JobRoleDataProvider implements ItemDataProviderInterface, RestrictedDataProviderInterface
 {
