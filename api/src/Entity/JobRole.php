@@ -25,6 +25,9 @@ class JobRole
     #[ORM\ManyToMany(targetEntity: Department::class, inversedBy: 'jobRoles')]
     private $department;
 
+    #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'recipient')]
+    private $task;
+
     public function __construct()
     {
         $this->department = new ArrayCollection();
@@ -67,6 +70,18 @@ class JobRole
     public function removeDepartment(Department $department): self
     {
         $this->department->removeElement($department);
+
+        return $this;
+    }
+
+    public function getTask(): ?Task
+    {
+        return $this->task;
+    }
+
+    public function setTask(?Task $task): self
+    {
+        $this->task = $task;
 
         return $this;
     }
